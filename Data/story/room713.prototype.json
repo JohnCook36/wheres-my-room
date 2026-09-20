@@ -1,0 +1,20 @@
+{
+  "id": "STORY-ROOM-713",
+  "roomNumber": 713,
+  "floor": 7,
+  "wing": "LEGACY",
+  "roomType": "UNKNOWN",
+  "normalInventory": false,
+  "defaultVisibleInPms": false,
+  "storyInjection": {
+    "shift": 1,
+    "trigger": "SHIFT_HANDOVER_IN_HOUSE_REFRESH",
+    "temporaryStatus": "OCCUPIED",
+    "guestName": "",
+    "departure": "",
+    "notes": [
+      "DND"
+    ],
+    "disappearsAfterRefresh": true
+  }
+}
