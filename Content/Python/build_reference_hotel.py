@@ -104,7 +104,13 @@ def validate_api():
         "StaticMeshComponent": ("set_static_mesh", "set_material", "set_mobility", "set_collision_enabled"),
         "Actor": ("get_level", "get_actor_label", "set_actor_label", "set_folder_path", "set_actor_scale3d"),
         "TextRenderComponent": ("set_text", "set_world_size", "set_text_render_color"),
-        "PointLightComponent": ("set_mobility",),
+        "PointLightComponent": (
+            "set_mobility",
+            "set_intensity_units",
+            "set_intensity",
+            "set_attenuation_radius",
+            "set_light_color",
+        ),
         "PointLight": (), "TextRenderActor": (), "StaticMeshActor": (),
         "MaterialFactoryNew": (), "MaterialExpressionConstant3Vector": (),
         "MaterialExpressionConstant": (), "ScopedEditorTransaction": (),
@@ -258,7 +264,13 @@ def create_simple_material(asset_name, color, roughness, metallic=0.0, opacity=1
             opacity_node, "", unreal.MaterialProperty.MP_OPACITY
         )
 
-    unreal.MaterialEditingLibrary.recompile_material(material)
+    compile_errors = unreal.MaterialEditingLibrary.recompile_material(material)
+    if compile_errors:
+        raise RuntimeError(
+            "Material compile failed for {}: {}".format(
+                asset_path, "; ".join(str(item) for item in compile_errors)
+            )
+        )
     if not unreal.EditorAssetLibrary.save_loaded_asset(material, False):
         raise RuntimeError("Unable to save material: " + asset_path)
     return material
@@ -1076,10 +1088,13 @@ def build_preview_lighting():
             actor.set_editor_property("is_editor_only_actor", True)
             component = actor.get_component_by_class(unreal.PointLightComponent)
             component.set_mobility(unreal.ComponentMobility.MOVABLE)
-            component.set_editor_property("intensity_units", unreal.LightUnits.LUMENS)
-            component.set_editor_property("intensity", float(intensity))
-            component.set_editor_property("attenuation_radius", float(radius))
-            component.set_editor_property("light_color", unreal.Color(255, 202, 145, 255))
+            component.set_intensity_units(unreal.LightUnits.LUMENS)
+            component.set_intensity(float(intensity))
+            component.set_attenuation_radius(float(radius))
+            component.set_light_color(
+                unreal.LinearColor(1.0, 0.59, 0.29, 1.0),
+                False,
+            )
             component.set_editor_property("cast_shadows", True)
 
 
