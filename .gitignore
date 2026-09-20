@@ -1,0 +1,41 @@
+# Unreal Engine generated files
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Visual Studio / Rider / IDE
+.vs/
+.idea/
+*.sln
+*.suo
+*.user
+*.userprefs
+*.VC.db
+*.VC.opendb
+
+# Build / packaged output
+Build/
+Dist/
+Packaging/
+StagedBuilds/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Unreal local caches
+LocalBuilds/
+Engine/DerivedDataCache/
+
+# Optional local environment files
+.env
+.env.*
+!.env.example
