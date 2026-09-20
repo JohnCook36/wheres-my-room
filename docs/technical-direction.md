@@ -1,4 +1,4 @@
-# Technical Direction v0.1
+# Technical Direction v0.2
 
 ## Engine
 
@@ -14,11 +14,25 @@ First-person narrative adventure.
 
 ## Visual direction
 
-**Cinematic stylized realism**:
-- realistic proportions;
-- believable hotel materials;
-- strong lighting and atmosphere;
+**Realistic hotel + stylized 3D characters.**
+
+Environment:
+- semi-realistic / realistic hotel architecture;
+- believable materials and operational details;
+- physically convincing lighting;
 - no requirement for absolute photorealism.
+
+Characters:
+- clearly stylized 3D models;
+- human proportions with controlled exaggeration;
+- expressive faces and silhouettes;
+- simplified surface detail compared with the environment.
+
+Rendering:
+- characters and environment share the same lighting, shadows, reflections and color grade;
+- the contrast comes from character shape language, not from using unrelated rendering styles.
+
+See `docs/visual-direction.md` for the full art-direction rules.
 
 ## Prototype strategy
 
@@ -67,3 +81,5 @@ The player must be able to:
 9. make a key;
 10. receive a radio task;
 11. complete it on a guest floor.
+
+Final character art is **not** required for this milestone.
