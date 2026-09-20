@@ -1,0 +1,9 @@
+ReservationId,GuestName,ArrivalDate,DepartureDate,BookedRoomType,AssignedRoom,Status,Notes
+RSV-S1-001,Daniel Harper,SHIFT1,SHIFT1+2,Standard,322,ARRIVAL,Higher floor if available
+RSV-S1-002,Elena Ward,SHIFT1,SHIFT1+3,Apartment,451,ARRIVAL,First stay
+RSV-S1-003,Marcus Reed,SHIFT1-1,SHIFT1+1,Standard,264,IN_HOUSE,Called about air conditioning
+RSV-S1-004,Sofia Bennett,SHIFT1-1,SHIFT1+2,Standard,426,IN_HOUSE,Guest reports key issue
+RSV-S1-005,Noah Bennett,SHIFT1-1,SHIFT1+2,Standard,428,IN_HOUSE,Traveling with same group
+RSV-S1-006,Amelia Stone,SHIFT1,SHIFT1+4,SuperiorApartmentBalcony,,ARRIVAL,Requests balcony
+RSV-S1-007,Oliver Grant,SHIFT1,SHIFT1+1,Corner,,ARRIVAL,No special requests
+RSV-S1-008,Mia Carter,SHIFT1,SHIFT1+2,Standard,,ARRIVAL,Late arrival expected
