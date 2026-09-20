@@ -1,0 +1,29 @@
+name: Validate prototype data
+
+on:
+  push:
+    paths:
+      - "Data/**"
+      - "scripts/validate_seed_data.py"
+      - ".github/workflows/data-validation.yml"
+  pull_request:
+    paths:
+      - "Data/**"
+      - "scripts/validate_seed_data.py"
+      - ".github/workflows/data-validation.yml"
+
+jobs:
+  validate-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate room and reservation seed data
+        run: python scripts/validate_seed_data.py
